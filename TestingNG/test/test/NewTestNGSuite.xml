@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TestingNG">
+
+    <!--
+    see examples at http://testng.org/doc/documentation-main.html#testng-xml
+
+    <suite-files>
+        <suite-file path="./junit-suite.xml" />
+    </suite-files>
+
+    <test name="TimeOut">
+        <classes>
+            <class name="test.timeout.TimeOutTest" />
+            <class name="test.timeout.TimeOutFromXmlTest"/>
+            <class name="test.timeout.TimeOutThreadLocalSampleTest"/>
+        </classes>
+    </test>
+    -->
+    
+    <test name="test suite">
+        <parameter name="a" value="2"/>
+        <parameter name="b" value="3"/>
+        <parameter name="s" value="5"/>
+        <groups> 
+            <define name ="all">
+                <include name="A"/>
+                <include name="B"/>
+                <include name="C"/>
+            </define>
+              <define name ="ac">
+                <include name="A"/>
+                <include name="C"/>                               
+            </define>
+            <run> 
+                <include name="all"/>
+                <exclude name="B"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="test"/>
+        </packages>
+    </test>
+
+</suite>
